@@ -796,12 +796,12 @@ ctx.stroke();
 						<p>L'element canvas obre la porta a un univers de possibilitats, veiem alguns exemples:</p>
 						<ol > 
 							<li><a href="http://jsfiddle.net/egogarcia/9sBNA/" target="_blank">Animació amb text</a></li>
-							<li><a href="http://codepen.io/suffick/pen/KrAwx" target="_blank">Tear-able Cloth</a></li>
+							<li><a href="http://jsfiddle.net/codepo8/mTaug/" target="_blank">Dibuixa amb el ratolí</a></li>
 							<li>... Molts més al señor Google</li>
 						</ol>
 						
 						<aside class="notes">
-							<p></p>
+							<p>http://techslides.com/learning-html5-canvas-through-jsfiddle-examples/</p>
 					</aside>
 					</section>
 				</section>
@@ -925,8 +925,158 @@ Your browser does not support the audio element.
 				</section>
 
 				<section>
-					<h2>Exercici</h2>
-					<p><a href="http://jsfiddle.net/">Juguem tots junts tot això</a></p>
+					<h2>Exercicis</h2>
+					<p><a href="http://jsfiddle.net/">Juguem tots junts tot això amb l'editor online jsfiddle.net</a></p>
+				</section>
+				
+				<section>
+					<h2>Exercici 1 (estructura)</h2>
+					<p>Fem un exemple molt simple utilitzant tots els elements d'estructura:</p>
+					<ul>
+						<li>nav</li>
+						<li>section</li>
+						<li>article</li>
+						<li>header</li>
+						<li>aside</li>
+						<li>footer</li>
+					</ul>
+					<aside class="notes">
+					<p><a href="http://jsfiddle.net/egogarcia/Szmt3/">Resultat</a></p>
+					</aside>
+				</section>
+				
+				<section>
+					<h2>Exercici 2 (formularis)</h2>
+					<p>Crear un únic formulari per fer una cerca a Google i Bing</p>
+					<p>El paràmetre de cerca s'ha d'enviar via GET es diu "q" i les URL de destí son:</p>
+					<ul>
+						<li>http://www.bing.com/search?q=textDeCerca</li>
+						<li>https://www.google.es/search?q=textDeCerca</li>
+					</ul>
+					<aside class="notes">
+					<p>Una bona pràctica és utilitzar dos elements input del tipus submit i un d'ells amb un formaction, recordeu mostrar els resultats en una nova pestanya.</p>
+					<p><a href="http://jsfiddle.net/egogarcia/bQ2FX/">Resultat</a></p>
+					</aside>
+				</section>
+				
+				<section>
+					<h2>Exercici 3 (video i audio)</h2>
+					<p>Proveu l'element vídeo i audio</p>
+					<p>Podeu trobar un vídeo en diferents formats d'exemple a </p>
+					<ul>
+						<li>http://www.w3schools.com/html/mov_bbb.mp4</li>
+						<li>http://www.w3schools.com/html/mov_bbb.ogg</li>
+						<li>http://www.w3schools.com/html/horse.ogg</li>
+						<li>http://www.w3schools.com/html/horse.mp3</li>
+					</ul>
+					<aside class="notes">
+					<p>Una bona pràctica és utilitzar dos elements input del tipus submit i un d'ells amb un formaction, recordeu mostrar els resultats en una nova pestanya.</p>
+					<p><a href="http://jsfiddle.net/egogarcia/jTu7a/">Resultat</a></p>
+					</aside>
+				</section>
+				
+				<section>
+					<h2>Exercici 4 (canvas) part 1</h2>
+					<p>Dibuixar un text personalitzat amb l'element canvas</p>
+					<p>Exemple:</p>
+					<canvas id="text" width="300" height="130"></canvas>
+					<script>
+					var canvas = document.getElementById("text"),
+					ctx = canvas.getContext('2d');
+
+					ctx.font = "40px 'Helvetica'";
+					ctx.scale(1,1);
+					ctx.fillStyle = "red";
+					ctx.fillText("Hola canvas", 50, 100);
+					</script>
+					<aside class="notes">
+					<p>??</p>
+					<p><a href="http://jsfiddle.net/DirkWeber/nnqc8/1/">Resultat</a></p>
+					</aside>
+				</section>
+				
+				<section>
+					<h2>Exercici 4 (canvas) part 2</h2>
+					<p>L'hi afegirem una ombra</p>
+					<pre><code data-trim contenteditable>
+
+ctx.shadowColor = "black"; //Color de l'hombra
+ctx.shadowOffsetX = 5; //Posició
+ctx.shadowOffsetY = 5; //Posició
+ctx.shadowBlur = 7; //Difuminat
+						
+					</code></pre>
+					<p>Exemple:</p>
+					<canvas id="text2" width="300" height="130"></canvas>
+					<script>
+					var canvas = document.getElementById("text2"),
+					ctx = canvas.getContext('2d');
+
+					ctx.shadowColor = "black"; //Color de l'hombra
+					ctx.shadowOffsetX = 5; //Posició
+					ctx.shadowOffsetY = 5; //Posició
+					ctx.shadowBlur = 7; //Difuminat
+					ctx.font = "40px 'Helvetica'";
+					ctx.scale(1,1);
+					ctx.fillStyle = "red";
+					ctx.fillText("Hola canvas", 50, 100);
+					</script>
+					<aside class="notes">
+					<p>??</p>
+					<p><a href="http://jsfiddle.net/DirkWeber/nnqc8/1/">Resultat</a></p>
+					</aside>
+				</section>
+				
+				<section>
+					<h2>Exercici 5 (canvas) avançat</h2>
+					<p>Crear un comptador amb l'element canvas</p>
+					<br>
+					<ul>
+					<li>Amb la següent instrucció podem cridar a la funció draw cada 25 mili-segons <pre><code>myTimer = setInterval(draw,25);</code></pre></li>
+					<li>Amb la següent instrucció podem netejar el contingut: <pre><code>context.clearRect( x, i, ample, alt );</code></pre></li>
+					</ul>
+					<p>Exemple:</p>
+					<canvas id="timmer" width="300" height="300"></canvas>
+					<script>
+					var canvas = document.getElementById("timmer");
+						var ctx = canvas.getContext("2d");
+						var cw = canvas.width,
+							ch = canvas.height;
+						var flg = 0;
+
+						init();
+						canvas.addEventListener("click", init, false);
+
+						function init(){
+						  if(flg == 0){
+							flg = 1;
+							myTimer = setInterval(draw,25);
+						  } else {
+							flg = 0;
+							clearInterval(myTimer);
+						  }
+						}
+
+						function draw() {
+							var d = new Date,
+								msec = d.getMilliseconds(),
+								sec = d.getSeconds(),
+								rectW = cw*msec/1000,
+								rectH = 100;
+							ctx.clearRect(0,0,cw,ch);
+							ctx.globalCompositeOperation = "source-over";
+							ctx.fillStyle = "#c06";
+							ctx.font = "bold 50px 'Times New Roman', Times, Serif";
+							ctx.fillText(sec,50,180);
+							ctx.globalCompositeOperation = "xor";
+							ctx.fillStyle ="#c06";
+							ctx.fillRect(0,ch/2-rectH/2,rectW, rectH);
+						}
+					</script>
+					<aside class="notes">
+					<p>??</p>
+					<p><a href="http://jsfiddle.net/wyw7R/4/">Resultat</a></p>
+					</aside>
 				</section>
 				
 				<!--section>
